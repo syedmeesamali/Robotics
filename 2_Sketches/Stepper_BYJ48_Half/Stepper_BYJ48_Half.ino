@@ -10,6 +10,7 @@ void setup () {
   pinMode(STEPPER_PIN_2, OUTPUT);
   pinMode(STEPPER_PIN_3, OUTPUT);
   pinMode(STEPPER_PIN_4, OUTPUT);
+  Serial.begin(9600);   //See the output data
 }
 
 void loop () {
