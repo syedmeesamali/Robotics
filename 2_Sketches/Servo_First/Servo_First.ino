@@ -13,12 +13,12 @@ void loop () {
   for (pos = 0; pos < 180; pos++) 
   {
     servo1.write(pos);
-    delay(10);        //Small delay before reversing direction
+    delay(15);        //Small delay before reversing direction
   }
 
-  for (pos = 180; pos >= 180; pos--) 
+  for (pos = 180; pos >= 1; pos--) 
   {
     servo1.write(pos);
-    delay(10);  
+    delay(15);  
   }
 }
