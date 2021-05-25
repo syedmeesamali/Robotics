@@ -11,13 +11,13 @@ void setup() {
 
 //Loop which will run continuously over the course of program
 void loop() {
-  for (pos = 0; pos < 180; pos++)
+  for (pos = 30; pos < 140; pos++)
   {
     Motor1.write(pos);
     delay(50);
   }
   delay(2000);
-  for (pos = 180; pos > 0; pos--)
+  for (pos = 140; pos > 30; pos--)
   {
     Motor1.write(pos);
     delay(50);
