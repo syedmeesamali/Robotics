@@ -35,30 +35,33 @@ void loop() {
   {
     val = Serial.read();      //Read the value and store in val
   }
-  if (val == '0')
+  if (val == '1')
     {
     for (pos = 75; pos >= 25; pos--) {
         base_motor.write(pos);
         arm_1_motor.write(pos);
+        arm_2_motor.write(60);
         delay(100);
         }
-    } else if (val == '1'){
+    } else if (val == '2'){
         arm_1_motor.write(45);
         arm_2_motor.write(45);
         delay(200);
-    } else if (val == '2'){
-        pos = pos + 1;
-        arm_3_motor.write(pos);
-        delay(200);
     } else if (val == '3'){
-        pos = pos - 1;
+        pos = pos + 1;
+        arm_2_motor.write(0);
         arm_3_motor.write(pos);
         delay(200);
     } else if (val == '4'){
+        pos = pos - 1;
+        arm_2_motor.write(90);
+        arm_3_motor.write(pos);
+        delay(200);
+    } else if (val == '5'){
         pos = pos + 1;
         grip_1_motor.write(pos);
         delay(200);
-    } else if (val == '5'){
+    } else if (val == '6'){
         pos = pos - 1;
         grip_1_motor.write(pos);
         delay(200);
