@@ -4,6 +4,7 @@ int serialVal = 0;
 
 Button grab;
 Button release;
+Button others;
 
 //Main setup function
 void setup() {
@@ -12,18 +13,20 @@ void setup() {
   myPort = new Serial(this, portName, 9600);
   print(portName);
   
-  size(300,250);
+  size(220,260);
   //background(40, 40, 40);
   frameRate(10);      //Canvas animation update frame-rate
   // create the button object
-  grab = new Button("Grab", 20, 20, 150, 50);
-  release = new Button("Release", 20, 80, 150, 50);
+  grab = new Button("Release", 20, 20, 150, 50);
+  release = new Button("Grab", 20, 80, 150, 50);
+  others = new Button("Move End", 20, 140, 150, 50);
 }
 
 //Main draw function to draw the buttons only
 void draw() {
   grab.Draw();
   release.Draw();
+  others.Draw();
 }
 
 // Mouse button clicked
@@ -31,10 +34,13 @@ void mousePressed()
 {
   if (grab.MouseIsOver()) {
     myPort.write('1');
-    println("Sent 1 to serial port!");
+    println("Sent 1: Release it!");
   } else if (release.MouseIsOver()) {
     myPort.write('2');
-    println("Sent 2 to serial port!");
+    println("Sent 2: Grab it!");
+  } else if (others.MouseIsOver()) {
+    myPort.write('3');
+    println("Sent 3: Others!");
   } else {
     myPort.write('0');
   }
