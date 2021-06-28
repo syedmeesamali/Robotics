@@ -23,16 +23,20 @@ void loop() {
   {
     val = Serial.read();      //Read the value and store in val
   }
-    if (val == '1')
-    {
-        grip_1_motor.write(0);
-        delay(200);
-    } else if (val == '2'){
-        grip_1_motor.write(60);
-        delay(200);
-    } else if (val == '3'){
-        grip_1_motor.write(160);
-        delay(200);
-    } 
+      //Current motor-8 situation ; 65-70 is the GRIP position and 110 is the release position
+      
+      if (val == '1')
+      {
+          grip_1_motor.write(0);
+          delay(200);
+      } else if (val == '2')
+      {
+          grip_1_motor.write(60);
+          delay(200);
+      } else if (val == '3')
+      {
+          grip_1_motor.write(160);
+          delay(200);
+      } 
   delay(500);
 }

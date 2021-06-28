@@ -28,7 +28,7 @@ void loop() {
     grip_1_motor.write(pos);
     if (pos >= 30 && pos <=120)     //Move second motor only half way
     {
-      if (pos >= 50 && pos <=90)   //Move third motor even lesser quantity
+      if (pos >= 65 && pos <=110)   //Move third motor even lesser quantity
       {
         grip_3_motor.write(pos);
       }
@@ -42,7 +42,7 @@ void loop() {
     grip_1_motor.write(pos);
      if (pos <= 120 && pos >= 30)     //Move second motor only half way
     {
-      if (pos <= 90 && pos >= 50)   //Move third motor even lesser quantity
+      if (pos <= 110 && pos >= 65)   //Move third motor even lesser quantity
       {
         grip_3_motor.write(pos);
       }
