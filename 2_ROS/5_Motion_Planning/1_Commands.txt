@@ -1,0 +1,9 @@
+#Source the environment
+source /opt/ros/noetic/setup.bash
+source ~/ws_moveit/devel/setup.bash
+
+#In first window (bash) run the rviz using below
+roslaunch moveit_task_constructor_demo demo.launch
+
+#Second bash window
+roslaunch moveit_task_constructor_demo pickplace.launch
