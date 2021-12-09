@@ -10,7 +10,7 @@ const depthFirstPrint = (graph, source) =>
             stack.push(neighbor);
         }
     }
-} //end of function
+}; //end of function
 
 //Recurssive graph print
 const depthFirstRecur = (graph, source) => 
@@ -20,12 +20,26 @@ const depthFirstRecur = (graph, source) =>
     {
         depthFirstRecur(graph, neighbor);
     }
-} //end of function
+}; //end of function
 
+
+const breadthFirst = (graph, source) =>
+{
+    const queue = [ source ];
+    while (queue.length > 0)
+    {
+        const current = queue.shift();
+        console.log(current);
+        for (let neighbor of graph[current])
+        {
+            queue.push(neighbor);
+        }
+    }
+};
 
 //Define graph
 const graph = {
-    a: ['b', 'c'],
+    a: ['c', 'b'],
     b: ['d'],
     c: ['e'],
     d: ['f'],
@@ -35,4 +49,4 @@ const graph = {
 
 //First is the print function
 //depthFirstPrint(graph, 'a');
-depthFirstRecur(graph, 'a')
+breadthFirst(graph, 'a')
