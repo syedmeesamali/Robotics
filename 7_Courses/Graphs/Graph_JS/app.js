@@ -1,3 +1,13 @@
+//Define graph
+const graph = {
+    a: ['c', 'b'],
+    b: ['d'],
+    c: ['e'],
+    d: ['f'],
+    e: [],
+    f: []
+};
+
 //Classic depth first graph print
 const depthFirstPrint = (graph, source) => 
 {
@@ -16,6 +26,7 @@ const depthFirstPrint = (graph, source) =>
 const depthFirstRecur = (graph, source) => 
 {
     console.log(source);
+    document.write(source + '</br>');
     for (let neighbor of graph[source])
     {
         depthFirstRecur(graph, neighbor);
@@ -29,22 +40,12 @@ const breadthFirst = (graph, source) =>
     while (queue.length > 0)
     {
         const current = queue.shift();
-        console.log(current);
+        document.write('<li>' + current + '</br>');
         for (let neighbor of graph[current])
         {
             queue.push(neighbor);
         }
     }
-};
-
-//Define graph
-const graph = {
-    a: ['c', 'b'],
-    b: ['d'],
-    c: ['e'],
-    d: ['f'],
-    e: [],
-    f: []
 };
 
 //First is the print function
