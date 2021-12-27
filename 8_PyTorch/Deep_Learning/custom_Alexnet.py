@@ -24,6 +24,14 @@ model.eval()
 model.to(device)
 y = model(batch.to(device))
 
+filename = "imagenet-labels.txt"
+f = open(os.path.join(os.path.dirname(__file__), filename))
+classes = [line.strip() for line in f.readlines()]
+
+#imagenet-labels files is locally downloaded and saved
+#with open('imagenet-labels.txt') as f:
+    
+
 prob = torch.nn.functional.softmax(y, dim=1)[0] * 100
 _, indices = torch.sort(y, descending=True)
 for idx in indices[0][:5]:
