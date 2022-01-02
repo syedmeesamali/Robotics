@@ -10,6 +10,6 @@ train_data = CIFAR10(root="./train", train=True)
 #print(train_data.classes)
 #print(train_data.class_to_idx)
 
-#print(type(train_data[0]))
-#print(len(train_data[0]))
+print(type(train_data[0]))
+print(len(train_data[0]))
 data, label = train_data[0]
