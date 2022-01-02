@@ -42,3 +42,10 @@ const greetings = {
   
   setToBlue(originalObject);
   document.write('Fav color: ' + originalObject.favoriteColor + '</br>');
+
+  let string = 'orange';
+  function changeToApple(string)
+  {
+    string = 'Apple';
+  }
+  document.write('Change it: ' + string + '</br>');
