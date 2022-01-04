@@ -7,6 +7,7 @@ print(type(data))
 print(data)
 
 test_data = CIFAR10(root="./test/", train=False)
-print(test_data)
-print(len(test_data))
-print(test_data.data.shape)
+#print(test_data)
+#print(len(test_data))
+#print(test_data.data.shape)
+
