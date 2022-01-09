@@ -4,6 +4,7 @@ const triangle = {
     return (`This is a ${this.type} triangle.`);
   }
 };
+document.write('</br></br>');
 document.write('Triangle type: ' + triangle.identify() + '</br>');
 
 /*
