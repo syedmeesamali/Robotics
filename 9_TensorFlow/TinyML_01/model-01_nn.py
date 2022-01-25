@@ -1,7 +1,6 @@
 from cProfile import label
 import tensorflow as tf
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -38,13 +37,58 @@ plt.legend()
 plt.show()
 
 
+#Main tensorflor KERAS api usage for neural network training
 from tensorflow.keras import layers
-
 model_1 = tf.keras.Sequential()
 #total 16 neurons. activation is relu type
 model_1.add(layers.Dense(16, activation='relu', input_shape = (1, )))
 model_1.add(layers.Dense(1))
 model_1.compile(optimizer = 'rmsprop', loss='mse', metrics = ['mae'])
 model_1.summary()
-history_1 = model_1.fit(x_train, y_train, epochs = 1000, batch_size = 16, 
+history_1 = model_1.fit(x_train, y_train, epochs = 500, batch_size = 16, 
             validation_data = (x_validate, y_validate))
+
+#New cell below
+
+loss = history_1.history['loss']
+val_loss = history_1.history['val_loss']
+epochs = range(1, len(loss) + 1)
+plt.plot(epochs, loss, 'g.', label='Training loss')
+plt.plot(epochs, val_loss, 'b', label='Validation loss')
+plt.title('Training and Validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+#NEW CELL
+
+SKIP = 100
+plt.plot(epochs[SKIP:], loss[SKIP:], 'g.', label='Training loss')
+plt.plot(epochs[SKIP:], val_loss[SKIP:], 'b.', label='Validation loss')
+plt.title('Training and Validation loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss')
+plt.legend()
+plt.show()
+
+#NEW CELL
+mae = history_1.history['mae']
+val_mae = history_1.history['val_mae']
+plt.plot(epochs[SKIP:], mae[SKIP:], 'g.', label='Training mae')
+plt.plot(epochs[SKIP:], val_mae[SKIP:], 'b.', label='Validation mae')
+plt.title('Training and Validation mean absolute error - mae')
+plt.xlabel('Epochs')
+plt.ylabel('MAE')
+plt.legend()
+plt.show()
+
+#NEW CELL
+predictions = model_1.predict(x_train)
+plt.clf()
+plt.title('Training data predicted vs actual data')
+plt.plot(x_test, y_test, 'b.', label='Actual')
+plt.plot(x_train, predictions, 'r.', label='Predicted')
+plt.legend()
+plt.show()
+
