@@ -92,9 +92,7 @@ plt.show()
 
 
 model_2 = tf.keras.Sequential()
-#total 16 neurons. activation is relu type
 model_2.add(layers.Dense(16, activation='relu', input_shape = (1, )))
-#One new second layer to be added so that it can help network learn better
 model_2.add(layers.Dense(16, activation='relu'))
 model_2.add(layers.Dense(1))
 
